@@ -79,7 +79,7 @@ class MyRequest {
       // 对响应数据做点什么
       if (!response || !response.data) {
         return Promise.reject(response)
-      } else if (response.data.status != 200) {
+      } else if (response.status != 200) {
         //   // 处理所有的错误
         //
         //   // 864 表示不存在的用户， 869 表示用户被冻结
