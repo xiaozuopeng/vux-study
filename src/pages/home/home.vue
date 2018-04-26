@@ -10,6 +10,7 @@
 <script>
   require('./home.less');
   import {Group, Cell} from 'vux'
+  import Api from '../../utils/http/api'
 
   export default {
     components: {
@@ -29,10 +30,18 @@
     methods: {
       jump() {
         this.$router.push('/detail')
+      },
+
+      getData() {
+        Api.getUserList().then((Response) => {
+          if (Response) {
+            console.log('-----------11111111', Response)
+          }
+        });
       }
     },
     created() {
-
+      this.getData();
     },
     mounted() {
 

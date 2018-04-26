@@ -8,6 +8,11 @@ import App from './App'
 
 Vue.use(router);
 
+// vux 引入组件
+import { AlertPlugin, ToastPlugin } from 'vux'
+Vue.use(AlertPlugin);
+Vue.use(ToastPlugin);
+
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false;

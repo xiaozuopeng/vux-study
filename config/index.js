@@ -2,7 +2,8 @@
 // Template version: 1.2.4
 // see http://vuejs-templates.github.io/webpack for documentation.
 
-const path = require('path')
+const path = require('path');
+import {GLOBAL_BASE} from '../src/utils/http/config';
 
 module.exports = {
   dev: {
@@ -10,7 +11,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: GLOBAL_BASE,  // 接口域名
+        changeOrigin: true,  //是否跨域
+        pathRewrite: {
+          '^/api': ''   //需要rewrite重写的,
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
